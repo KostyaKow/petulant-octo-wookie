@@ -10,7 +10,7 @@ elif [[ "`uname`" == 'freebsd' ]]; then
    exit -1
 fi 
 
-if [[ "`ps -e | grep nginx`"  == "" ]]; then
+if [[ "`ps -e | grep nginx`"  == "" ]]; then #ps auxww for bsd
    nginx
 fi
 
