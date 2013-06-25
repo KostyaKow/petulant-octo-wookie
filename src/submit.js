@@ -1,6 +1,6 @@
-var http      = require('http')
-var url       = require('url')
-var querystr  = require('querystring')
+var http = require('http')
+var url  = require('url')
+var qs   = require('querystring')
 
 
 function thankYou(res) {
@@ -10,7 +10,7 @@ function thankYou(res) {
 function start(reqUrl, res) {
    console.log('query = "' + reqUrl.query + '"\n')
    
-   console.log(querystr.parse(reqUrl.query))
+   console.log(qs.parse(reqUrl.query))
 
 
 /* 
