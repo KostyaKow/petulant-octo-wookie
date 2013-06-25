@@ -1,21 +1,24 @@
-var http = require('http');
+var http    = require('http')
+var router  = require('./router')
 
-var slow = true
+var i = 1
 
 var server = http.createServer(
    function (req, res) {
-      slow = !slow
-      if (slow) {
-         for (var i = 0; i < 1000000000; i++) i-=0.01
-      }
-      console.log('hi!')
-      res.writeHead(200, {'Content-Type': 'text/plain'});
-      res.write('<b></b>Hello, World!' + i) 
+      console.log('\n\n\nhandling request #' + i++)
+
+      res.writeHead(200, {'Content-Type' : 'text/html'})
+
+      router.handle(req, res) 
+      //res.write('request: ' + url.parse(req.url).query)
+      //res.write('\n\n<b>test</b>Hello, World!')
+
       res.end()
    }                          )
 
-server.listen(80) //4242
-
-console.log('Server is up!')
-
-
+exports.server = server
+exports.start  =
+   function () {
+      console.log('starting server')
+      server.listen(8888)
+   }
