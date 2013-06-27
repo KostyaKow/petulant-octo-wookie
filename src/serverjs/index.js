@@ -1,5 +1,9 @@
 var http    = require('http')
+
 var router  = require('./router')
+var db      = require('./db')
+
+db.init()
 
 var i = 1
 
