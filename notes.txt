@@ -1,3 +1,2 @@
-We should probably use express framework for node.js.
-
-What database?
+-Should we use express framework for node.js?
+-Decide on database (I am thinking PostgreSQL, mongoDB or just keep all the data in normal files).

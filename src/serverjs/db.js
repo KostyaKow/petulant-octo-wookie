@@ -1,10 +1,26 @@
-var pg = require('pg') //postgres
+//I don't want to mess with database until
+//the server code works properly.
+
+function fake() {}
+
+exports.init         = fake
+exports.stop         = fake
+exports.initDb       = fake
+exports.usrExists    = fake
+exports.addUser      = fake
+exports.getPasswd    = fake
+exports.postComment  = fake
+
+//real code
+
+
+var m_pg = require('pg') //postgres
 
 var client, query;
 
 function init() {
    // pstgres://username:password@localhost:5432/dbname
-   client = new pg.Client('postgres://kkostya:pass@localhost:5432/kkostya')
+   client = new m_pg.Client('postgres://kkostya:pass@localhost:5432/kkostya')
    client.connect()
 }
 
@@ -52,6 +68,8 @@ function postComment(title, comment, poster) {
 //console.log('\n---\n')
 //stop()
 
+
+/*
 exports.init        = init
 exports.stop        = stop
 exports.initDb      = initDb
@@ -59,3 +77,4 @@ exports.usrExists   = usrExists
 exports.addUser     = addUser
 exports.getPasswd   = getPasswd
 exports.postComment = postComment
+*/

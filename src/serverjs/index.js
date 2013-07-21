@@ -1,22 +1,23 @@
-var http    = require('http')
+var m_http    = require('http')
 
-var router  = require('./router')
-var db      = require('./db')
+var m_router  = require('./router')
+    m_db      = require('./db')
 
-db.init()
+m_db.init()
 
 var i = 1
 
-var server = http.createServer(
-   function (req, res) {
+var server =
+   http.createServer(function (req, res) {
       console.log('\n\n\nhandling request #' + i++)
 
       res.writeHead(200, {'Content-Type' : 'text/html'})
-
-      router.handle(req, res) 
+      
+      //TODO: check for failures and recover...
+      router._(req, res) 
 
       res.end()
-   }                          )
+   })
 
 console.log('starting server')
 server.listen(8888)
